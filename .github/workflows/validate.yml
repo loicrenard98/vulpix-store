@@ -1,0 +1,40 @@
+# Vérifie automatiquement chaque proposition de publication (pull request).
+# « pull_request_target » + script lu depuis main : le contenu proposé est seulement lu,
+# jamais exécuté, et une proposition ne peut pas modifier les règles de vérification.
+name: validate
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Règles de la boutique (branche main)
+        uses: actions/checkout@v4
+        with:
+          path: base
+
+      - name: Contenu proposé
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          persist-credentials: false
+
+      - name: Vérification
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $files = gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json files -q '.files[].path'
+          ./base/tools/build-catalog.ps1 -Validate -Root ./pr -BaseRoot ./base `
+            -PrAuthor '${{ github.event.pull_request.user.login }}' `
+            -Owner '${{ github.repository_owner }}' `
+            -ChangedFiles @($files)
