@@ -1,0 +1,21 @@
+{
+  "id": "domotique-ha",
+  "name": "Domotique-HA",
+  "description": "Bla bla no justsu quiproco",
+  "author": "Loïc",
+  "type": "Blocks",
+  "language": "Blocks",
+  "version": "1.0.0",
+  "releaseNotes": "",
+  "icon": "🧩",
+  "iconFile": "",
+  "package": "projects/domotique-ha/domotique-ha-1.0.0.zip",
+  "sha256": "565b0ab175782e32d8663aad87c26434e72a93a103647bc4a0ff091d2e755904",
+  "size": 2344,
+  "price": 0,
+  "currency": "EUR",
+  "tags": [],
+  "updated": "2026-11-23T19:58:54.908Z",
+  "minVulpixVersion": "0.2.0",
+  "authorKeyHash": "d36f491abaac5a18762ba13cc96c2349bd8511c53621e042f538beb6b411e5e1"
+}
