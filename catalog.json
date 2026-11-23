@@ -1,5 +1,27 @@
 {
   "formatVersion": 1,
-  "generated": "2026-11-23T18:16:29Z",
-  "projects": []
+  "generated": "2026-11-23T18:30:05Z",
+  "projects": [
+    {
+      "id": "calculatrice",
+      "name": "Calculatrice",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "author": "loic",
+      "type": "Interface",
+      "language": "C#",
+      "version": "1.0.0",
+      "releaseNotes": "",
+      "icon": "🖼",
+      "iconFile": "",
+      "package": "projects/calculatrice/calculatrice-1.0.0.zip",
+      "sha256": "ba82621382fc080d09ac5693ef734942d9af4b2f959d320ce96860184cb1337a",
+      "size": 3457,
+      "price": 0,
+      "currency": "EUR",
+      "tags": [],
+      "updated": "2026-11-23T18:28:38.17Z",
+      "minVulpixVersion": "0.2.0",
+      "authorKeyHash": "d36f491abaac5a18762ba13cc96c2349bd8511c53621e042f538beb6b411e5e1"
+    }
+  ]
 }
