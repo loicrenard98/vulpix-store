@@ -102,6 +102,13 @@ if (Test-Path $projectsDir) {
     }
 }
 
+# Un pseudo (publication sans compte) n'appartient qu'à une seule clé d'auteur.
+$entries | Where-Object { $_.authorKeyHash } | Group-Object { "$($_.author)".ToLowerInvariant() } | ForEach-Object {
+    if (@($_.Group | Select-Object -ExpandProperty authorKeyHash -Unique).Count -gt 1) {
+        Fail "Le pseudo « $($_.Group[0].author) » est utilisé par plusieurs auteurs différents"
+    }
+}
+
 # ----- Règles propres aux propositions (pull requests) ------------------------------
 if ($Validate -and $PrAuthor) {
     $isOwner = $Owner -and ($PrAuthor -ieq $Owner)
@@ -117,6 +124,17 @@ if ($Validate -and $PrAuthor) {
         $new = if (Test-Path $manifest) { Read-Manifest $manifest } else { $null }
         $oldPath = if ($BaseRoot) { Join-Path $BaseRoot "projects/$id/manifest.json" } else { '' }
         $old = if ($oldPath -and (Test-Path $oldPath)) { Read-Manifest $oldPath } else { $null }
+
+        # Projets publiés sans compte (relais) : le propriétaire est la clé d'auteur.
+        # Les propositions du relais arrivent au nom du propriétaire de la boutique : ces règles s'appliquent aussi.
+        if ($old -and $old.authorKeyHash) {
+            if ($new -and $new.authorKeyHash -ne $old.authorKeyHash) { Fail "$id : la clé d'auteur ne correspond pas au propriétaire du projet" }
+            if ($new -and $file -like '*/manifest.json') {
+                $oldVersion = Parse-Version $old.version
+                $newVersion = Parse-Version $new.version
+                if ($oldVersion -and $newVersion -and $newVersion -le $oldVersion) { Fail "$id : la version doit être supérieure à $($old.version)" }
+            }
+        }
 
         if ($isOwner) { continue } # le propriétaire de la boutique peut tout corriger
 
