@@ -1,7 +1,28 @@
 {
   "formatVersion": 1,
-  "generated": "2026-11-23T18:30:05Z",
+  "generated": "2026-11-23T18:30:56Z",
   "projects": [
+    {
+      "id": "atelier-blocs",
+      "name": "Atelier-Blocs",
+      "description": "ddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeddddddddddddddddddddddddsssssssssssssssssssssssssssssssssssssssseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "author": "loic",
+      "type": "Blocks",
+      "language": "Blocks",
+      "version": "1.0.0",
+      "releaseNotes": "",
+      "icon": "🧩",
+      "iconFile": "",
+      "package": "projects/atelier-blocs/atelier-blocs-1.0.0.zip",
+      "sha256": "1bbd29898e97221b73473ed3f60440a2a9c675fbee493ff470e8fc420d95d6e4",
+      "size": 5576,
+      "price": 0,
+      "currency": "EUR",
+      "tags": [],
+      "updated": "2026-11-23T18:23:15.268Z",
+      "minVulpixVersion": "0.2.0",
+      "authorKeyHash": "d36f491abaac5a18762ba13cc96c2349bd8511c53621e042f538beb6b411e5e1"
+    },
     {
       "id": "calculatrice",
       "name": "Calculatrice",
